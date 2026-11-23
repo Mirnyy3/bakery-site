@@ -1,0 +1,41 @@
+media:
+  input: images/products
+  output: /images/products
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
+
+content:
+  - name: products
+    label: Товары
+    type: collection
+    path: products
+    format: json
+    filename: "{primary}.json"
+    fields:
+      - name: title
+        label: Название товара
+        type: string
+        required: true
+
+      - name: description
+        label: Описание
+        type: text
+
+      - name: price
+        label: Цена (руб.)
+        type: number
+
+      - name: category
+        label: Категория
+        type: string
+
+      - name: image
+        label: Фотография товара
+        type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+
+    view:
+      primary: title
+      fields: [title, price, category]

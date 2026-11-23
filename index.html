@@ -6,103 +6,279 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Пекарня Родной край в Белгороде. Свежий хлеб, торты, выпечка и пирожные.">
   <title>Родной край — пекарня в Белгороде</title>
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
       font-family: Georgia, 'Times New Roman', serif;
-      background: #faf5eb; color: #493322; line-height: 1.6;
+      background: #faf5eb;
+      color: #493322;
+      line-height: 1.6;
     }
+
     header {
-      background: #593b28; color: #fff7e9; padding: 20px 7%;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 15px;
+      background: #593b28;
+      color: #fff7e9;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
-    .logo { font-size: 27px; font-weight: bold; letter-spacing: 1px; }
+
+    .logo {
+      font-size: 27px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
     .logo span { color: #e8c58e; }
-    nav { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
-    nav a { color: #fff7e9; text-decoration: none; font-size: 16px; }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff7e9;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
     nav a:hover { color: #e8c58e; }
+
     .hero {
-      min-height: 440px; padding: 80px 20px; text-align: center;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      background: linear-gradient(rgba(49,31,19,.57), rgba(49,31,19,.65)),
+      min-height: 440px;
+      padding: 80px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background:
+        linear-gradient(rgba(49,31,19,.57), rgba(49,31,19,.65)),
         url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1800') center/cover;
       color: white;
     }
-    .hero h1 { font-size: clamp(38px, 6vw, 65px); margin-bottom: 18px; }
-    .hero p { font-size: 21px; max-width: 650px; margin-bottom: 28px; }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 65px);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
     .hero a {
-      display: inline-block; background: #d7ad72; color: #402a1c;
-      text-decoration: none; padding: 13px 30px; border-radius: 30px;
-      font-weight: bold; transition: .2s;
+      display: inline-block;
+      background: #d7ad72;
+      color: #402a1c;
+      text-decoration: none;
+      padding: 13px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: .2s;
     }
-    .hero a:hover { background: #f0d4a7; transform: translateY(-2px); }
+
+    .hero a:hover {
+      background: #f0d4a7;
+      transform: translateY(-2px);
+    }
+
     section { padding: 70px 7%; }
+
     .section-title {
-      text-align: center; font-size: 38px; margin-bottom: 12px; color: #593b28;
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 12px;
+      color: #593b28;
     }
+
     .section-subtitle {
-      text-align: center; color: #92775d; margin-bottom: 32px; font-size: 17px;
+      text-align: center;
+      color: #92775d;
+      margin-bottom: 32px;
+      font-size: 17px;
     }
+
     .catalog { min-height: 400px; }
+
     .category-tabs {
-      display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
       margin: 0 auto 38px;
     }
+
     .category-tab {
-      border: 1px solid #c9aa80; background: #fffdf8; color: #65452e;
-      padding: 11px 24px; border-radius: 28px; cursor: pointer;
-      font: bold 16px Georgia, 'Times New Roman', serif; transition: .2s;
+      border: 1px solid #c9aa80;
+      background: #fffdf8;
+      color: #65452e;
+      padding: 11px 24px;
+      border-radius: 28px;
+      cursor: pointer;
+      font: bold 16px Georgia, 'Times New Roman', serif;
+      transition: .2s;
     }
+
     .category-tab:hover { background: #f2e3cd; }
+
     .category-tab.active {
-      background: #593b28; color: #fff7e9; border-color: #593b28;
+      background: #593b28;
+      color: #fff7e9;
+      border-color: #593b28;
       box-shadow: 0 4px 12px rgba(75,49,29,.15);
     }
+
     .products {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 28px; max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .card {
-      background: #fffdf8; border-radius: 15px; overflow: hidden;
+      background: #fffdf8;
+      border-radius: 15px;
+      overflow: hidden;
       box-shadow: 0 5px 20px rgba(75,49,29,.10);
       transition: transform .25s, box-shadow .25s;
     }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(75,49,29,.16); }
-    .card img { width: 100%; height: 225px; object-fit: cover; display: block; }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(75,49,29,.16);
+    }
+
+    .card img {
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      display: block;
+    }
+
     .no-image {
-      height: 225px; display: flex; justify-content: center; align-items: center;
-      background: #eadbc5; font-size: 65px;
+      height: 225px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #eadbc5;
+      font-size: 65px;
     }
+
     .card-content { padding: 22px; }
-    .card h3 { font-size: 23px; color: #593b28; margin-bottom: 9px; }
-    .card p { color: #806b57; font-size: 15px; margin-bottom: 12px; }
-    .category {
-      display: inline-block; background: #f2e7d5; color: #795533;
-      border-radius: 20px; padding: 4px 12px; font-size: 13px; margin-bottom: 12px;
+
+    .card h3 {
+      font-size: 23px;
+      color: #593b28;
+      margin-bottom: 9px;
     }
-    .price { color: #95652e; font-weight: bold; font-size: 21px; margin-top: 8px; }
-    .status { text-align: center; color: #92775d; padding: 30px; grid-column: 1 / -1; }
-    .about { background: #eee3d2; text-align: center; }
-    .about-content { max-width: 800px; margin: auto; }
-    .about p { font-size: 19px; color: #715941; margin-top: 18px; }
-    .about .city { margin-top: 28px; font-size: 23px; color: #593b28; font-weight: bold; }
+
+    .card p {
+      color: #806b57;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: #95652e;
+      font-weight: bold;
+      font-size: 21px;
+      margin-top: 8px;
+    }
+
+    .status {
+      text-align: center;
+      color: #92775d;
+      padding: 30px;
+      grid-column: 1 / -1;
+    }
+
+    .about {
+      background: #eee3d2;
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about p {
+      font-size: 19px;
+      color: #715941;
+      margin-top: 18px;
+    }
+
+    .about .city {
+      margin-top: 28px;
+      font-size: 23px;
+      color: #593b28;
+      font-weight: bold;
+    }
+
     .contacts { text-align: center; }
-    .contacts p { font-size: 18px; color: #806b57; margin-top: 12px; }
-    footer { background: #493322; color: #f9eddb; text-align: center; padding: 30px 15px; }
-    footer strong { display: block; font-size: 23px; color: #e8c58e; margin-bottom: 5px; }
+
+    .contacts p {
+      font-size: 18px;
+      color: #806b57;
+      margin-top: 12px;
+    }
+
+    footer {
+      background: #493322;
+      color: #f9eddb;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer strong {
+      display: block;
+      font-size: 23px;
+      color: #e8c58e;
+      margin-bottom: 5px;
+    }
+
     @media (max-width: 650px) {
-      header { justify-content: center; text-align: center; }
-      nav { justify-content: center; gap: 14px; }
-      .hero { min-height: 370px; padding: 55px 20px; }
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: 370px;
+        padding: 55px 20px;
+      }
+
       .hero p { font-size: 18px; }
+
       section { padding: 52px 6%; }
+
       .section-title { font-size: 31px; }
-      .category-tab { padding: 10px 17px; font-size: 15px; }
+
+      .category-tab {
+        padding: 10px 17px;
+        font-size: 15px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo">🌾 РОДНОЙ <span>КРАЙ</span></div>
@@ -124,14 +300,15 @@
       <h2 class="section-title">Наша продукция</h2>
       <p class="section-subtitle">Выберите раздел и познакомьтесь с нашей продукцией</p>
 
-      <div class="category-tabs" role="tablist" aria-label="Разделы каталога">
-        <button class="category-tab active" type="button" data-category="Хлеб" aria-selected="true">Хлеб</button>
-        <button class="category-tab" type="button" data-category="Торты" aria-selected="false">Торты</button>
-        <button class="category-tab" type="button" data-category="Выпечка" aria-selected="false">Выпечка</button>
-        <button class="category-tab" type="button" data-category="Пирожные" aria-selected="false">Пирожные</button>
+      <div class="category-tabs" role="tablist">
+        <button class="category-tab active" type="button" data-category="Хлеб">Хлеб</button>
+        <button class="category-tab" type="button" data-category="Торты">Торты</button>
+        <button class="category-tab" type="button" data-category="Выпечка">Выпечка</button>
+        <button class="category-tab" type="button" data-category="Пирожные">Пирожные</button>
       </div>
 
       <h2 class="section-title" id="current-category-title" style="font-size:30px; margin-bottom:25px;">Хлеб</h2>
+
       <div class="products" id="products-list">
         <div class="status">Загружаем свежую продукцию...</div>
       </div>
@@ -166,8 +343,25 @@
       return String(value || '').trim().toLocaleLowerCase('ru');
     }
 
+    // Правильно собираем адрес фотографии для GitHub Pages
+    function getImageUrl(image) {
+      const path = String(image || '').trim();
+
+      if (!path) return '';
+
+      // Если указан полный интернет-адрес — используем его
+      if (/^https?:\/\//i.test(path)) {
+        return path;
+      }
+
+      // Убираем начальный слеш и собираем адрес от корня сайта
+      const cleanPath = path.replace(/^\/+/, '');
+      return new URL(cleanPath, new URL('./', window.location.href)).href;
+    }
+
     function showCategory(category) {
       activeCategory = category;
+
       document.querySelectorAll('.category-tab').forEach(button => {
         const selected = button.dataset.category === category;
         button.classList.toggle('active', selected);
@@ -198,21 +392,21 @@
         const card = document.createElement('article');
         card.className = 'card';
 
-        if (product.image) {
+        const imageUrl = getImageUrl(product.image);
+
+        if (imageUrl) {
           const img = document.createElement('img');
-          let imagePath = String(product.image).trim();
-          if (!/^https?:\/\//i.test(imagePath)) {
-            imagePath = './' + imagePath.replace(/^\/+/, '');
-          }
-          img.src = imagePath;
+          img.src = imageUrl;
           img.alt = product.title || 'Продукция пекарни';
           img.loading = 'lazy';
+
           img.onerror = () => {
             const placeholder = document.createElement('div');
             placeholder.className = 'no-image';
             placeholder.textContent = '🥐';
             img.replaceWith(placeholder);
           };
+
           card.appendChild(img);
         } else {
           const placeholder = document.createElement('div');
@@ -248,31 +442,49 @@
 
     async function loadProducts() {
       const container = document.getElementById('products-list');
+
       try {
         const response = await fetch(
           'https://api.github.com/repos/Mirnyy3/bakery-site/contents/products?ref=main'
         );
-        if (!response.ok) throw new Error('Не удалось получить список товаров');
+
+        if (!response.ok) {
+          throw new Error('Не удалось получить список товаров');
+        }
 
         const files = await response.json();
-        const jsonFiles = files.filter(file => file.name.toLowerCase().endsWith('.json'));
 
-        const products = await Promise.all(jsonFiles.map(async file => {
-          const result = await fetch(file.download_url);
-          if (!result.ok) return null;
-          return await result.json();
-        }));
+        const jsonFiles = files.filter(file =>
+          file.name.toLowerCase().endsWith('.json')
+        );
 
-        allProducts = products.filter(product => product && typeof product === 'object');
+        const products = await Promise.all(
+          jsonFiles.map(async file => {
+            const result = await fetch(file.download_url);
+
+            if (!result.ok) return null;
+
+            return await result.json();
+          })
+        );
+
+        allProducts = products.filter(product =>
+          product && typeof product === 'object'
+        );
+
         showCategory(activeCategory);
+
       } catch (error) {
-        console.error(error);
-        container.innerHTML = '<div class="status">Не удалось загрузить каталог. Попробуйте обновить страницу позже.</div>';
+        console.error('Ошибка загрузки каталога:', error);
+        container.innerHTML =
+          '<div class="status">Не удалось загрузить каталог. Попробуйте обновить страницу позже.</div>';
       }
     }
 
     document.querySelectorAll('.category-tab').forEach(button => {
-      button.addEventListener('click', () => showCategory(button.dataset.category));
+      button.addEventListener('click', () => {
+        showCategory(button.dataset.category);
+      });
     });
 
     loadProducts();

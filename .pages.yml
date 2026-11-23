@@ -1,3 +1,4 @@
+
 media:
   input: images/products
   output: /images/products
@@ -5,6 +6,30 @@ media:
   rename: safe
 
 content:
+  - name: categories
+    label: Категории
+    type: collection
+    path: categories
+    format: json
+    filename: "{primary}.json"
+    fields:
+      - name: title
+        label: Название категории
+        type: string
+        required: true
+      - name: description
+        label: Описание категории
+        type: text
+      - name: image
+        label: Фотография обложки
+        type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+    view:
+      primary: title
+      fields: [title]
+
   - name: products
     label: Товары
     type: collection
@@ -16,26 +41,27 @@ content:
         label: Название товара
         type: string
         required: true
-
       - name: description
         label: Описание
         type: text
-
       - name: price
         label: Цена (руб.)
         type: number
-
       - name: category
-        label: Категория
-        type: string
-
+        label: Категория товара
+        type: select
+        options:
+          values:
+            - Хлеб
+            - Торты
+            - Выпечка
+            - Пирожные
       - name: image
         label: Фотография товара
         type: image
         options:
           extensions: [jpg, jpeg, png, webp]
           rename: safe
-
     view:
       primary: title
       fields: [title, price, category]
